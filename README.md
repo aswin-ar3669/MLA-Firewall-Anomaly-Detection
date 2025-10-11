@@ -12,6 +12,3 @@ python ./test_model.py --test_csv ./firewall_test.csv --iso_model ./model_isolat
 
 # TO PREDICT USING REAL TIME DATA
 python ./predict.py --input_csv ./firewall_test.csv --iso_model ./model_isolation_forest.joblib --clf_model ./model_gb_classifier.joblib --out ./predictions.csv
-
-
-python ./visualize_firewall.py --pred_csv ./test_with_predictions.csv --iso_model ./model_isolation_forest.joblib --clf_model ./model_gb_classifier.joblib --outdir ./Visualization
