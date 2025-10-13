@@ -1,6 +1,14 @@
 # MLA_Firewall_Anomaly
 Anomaly Detection And Attack Prediction From Firewall Logs
 
+# COMPARE AND SELECT BEST ML ALGORITHM
+
+  # SUPERVISED
+  python compare_supervised --csv firewall_train.csv --outdir ./results
+  
+  # UNSUPERVISED
+  python compare_unsupervised.py --csv firewall_train.csv --outdir ./results
+
 
 # TO TRAIN THE MODEL
 python ./train_model.py --train_csv ./firewall_train.csv --outdir ./
