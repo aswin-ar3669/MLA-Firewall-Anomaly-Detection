@@ -1,0 +1,130 @@
+{
+  "cv": "StratifiedKFold(n_splits=5, shuffle=True, random_state=42)",
+  "isolation_forest": {
+    "best_params": {
+      "iso__n_estimators": 800,
+      "iso__max_samples": 256,
+      "iso__max_features": 0.8,
+      "iso__contamination": 0.15,
+      "iso__bootstrap": false
+    },
+    "best_cv_score": 0.7596872943999381,
+    "train_auroc": 0.7941897441851464,
+    "model_path": "./models\\model_isolation_forest.joblib"
+  },
+  "gradient_boosting": {
+    "best_params": {
+      "gb__subsample": 0.8,
+      "gb__n_estimators": 400,
+      "gb__min_samples_split": 50,
+      "gb__min_samples_leaf": 10,
+      "gb__max_depth": 4,
+      "gb__learning_rate": 0.2
+    },
+    "best_cv_score_f1_macro": 0.90308309211575,
+    "train_accuracy": 1.0,
+    "train_f1_macro": 1.0,
+    "classification_report": {
+      "benign": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 7975.0
+      },
+      "brute_force": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 517.0
+      },
+      "ddos": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 280.0
+      },
+      "dns_tunnel": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 321.0
+      },
+      "exfiltration": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 315.0
+      },
+      "port_scan": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 592.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 10000.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 10000.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        7975,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        517,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        280,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        321,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        315,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        592
+      ]
+    ],
+    "model_path": "./models\\model_gb_classifier.joblib"
+  }
+}

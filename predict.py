@@ -1,5 +1,4 @@
-
-# python ./predict.py --input_csv ./firewall_test.csv --iso_model ./model_isolation_forest.joblib --clf_model ./model_gb_classifier.joblib --out ./predictions.csv
+# python ./predict.py --input_csv ./firewall_test.csv --iso_model ./models/model_isolation_forest.joblib --clf_model ./models/model_gb_classifier.joblib --out ./models/result/predictions.csv
 import argparse, os, json
 import numpy as np
 import pandas as pd

@@ -1,0 +1,115 @@
+{
+  "anomaly_auroc": 0.7463494819107301,
+  "accuracy": 0.9605,
+  "classification_report": {
+    "benign": {
+      "precision": 0.9688084840923269,
+      "recall": 0.9816687737041719,
+      "f1-score": 0.9751962323390895,
+      "support": 1582.0
+    },
+    "brute_force": {
+      "precision": 0.8333333333333334,
+      "recall": 0.8252427184466019,
+      "f1-score": 0.8292682926829268,
+      "support": 103.0
+    },
+    "ddos": {
+      "precision": 0.9558823529411765,
+      "recall": 0.8125,
+      "f1-score": 0.8783783783783784,
+      "support": 80.0
+    },
+    "dns_tunnel": {
+      "precision": 0.84,
+      "recall": 0.7241379310344828,
+      "f1-score": 0.7777777777777778,
+      "support": 58.0
+    },
+    "exfiltration": {
+      "precision": 1.0,
+      "recall": 0.9791666666666666,
+      "f1-score": 0.9894736842105263,
+      "support": 48.0
+    },
+    "port_scan": {
+      "precision": 0.9923076923076923,
+      "recall": 1.0,
+      "f1-score": 0.9961389961389961,
+      "support": 129.0
+    },
+    "accuracy": 0.9605,
+    "macro avg": {
+      "precision": 0.9317219771124216,
+      "recall": 0.8871193483086538,
+      "f1-score": 0.9077055602546159,
+      "support": 2000.0
+    },
+    "weighted avg": {
+      "precision": 0.9598433178551904,
+      "recall": 0.9605,
+      "f1-score": 0.9597765612160991,
+      "support": 2000.0
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "benign",
+      "port_scan",
+      "brute_force",
+      "dns_tunnel",
+      "exfiltration",
+      "ddos"
+    ],
+    "matrix": [
+      [
+        1553,
+        1,
+        17,
+        8,
+        0,
+        3
+      ],
+      [
+        0,
+        129,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        18,
+        0,
+        85,
+        0,
+        0,
+        0
+      ],
+      [
+        16,
+        0,
+        0,
+        42,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        47,
+        0
+      ],
+      [
+        15,
+        0,
+        0,
+        0,
+        0,
+        65
+      ]
+    ]
+  }
+}

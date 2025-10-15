@@ -1,0 +1,10 @@
+argparse
+jsonschema
+numpy
+pandas
+joblib
+scikit-learn
+matplotlib
+seaborn
+jupyter
+streamlit

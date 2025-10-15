@@ -1,4 +1,4 @@
-# python test_model.py --test_csv ./firewall_test.csv --iso_model ./model_isolation_forest.joblib --clf_model ./model_gb_classifier.joblib --outdir ./Visualization
+# python test_model.py --test_csv ./firewall_test.csv --iso_model ./models/model_isolation_forest.joblib --clf_model ./models/model_gb_classifier.joblib --outdir ./models/Visualization
 import argparse, os, json
 import numpy as np
 import pandas as pd

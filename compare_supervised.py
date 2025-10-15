@@ -1,4 +1,4 @@
-#  python Select_Model.py --csv firewall_train.csv --outdir ./results
+#  python Select_Model.py --csv firewall_train.csv --outdir ./models/results
 import argparse, os, json
 import numpy as np
 import pandas as pd
