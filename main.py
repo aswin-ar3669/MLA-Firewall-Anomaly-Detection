@@ -175,7 +175,7 @@ with tab[2]:
             with st.spinner("Running supervised model comparison..."):
                 # Create unique temp directory
                 sup_tmp = Path(workdir_base) / f"supervised_tmp"
-                sup_tmp.mkdir(parents=True)
+                sup_tmp.mkdir(parents=True, exist_ok=True)
 
                 try:
                     # Save uploaded file
@@ -253,17 +253,6 @@ with tab[2]:
 
                 except Exception as e:
                     st.error(f"Error: {str(e)}")
-                finally:
-                    # Clean up temp directory
-                    try:
-                        import shutil
-                        import time
-
-                        time.sleep(0.5)  # Wait a bit before cleanup
-                        if sup_tmp.exists():
-                            shutil.rmtree(sup_tmp, ignore_errors=True)
-                    except:
-                        pass  # Ignore cleanup errors
 
 # -------------------- COMPARE UNSUPERVISED TAB --------------------
 with tab[3]:
@@ -280,7 +269,7 @@ with tab[3]:
             with st.spinner("🔄 Running unsupervised model comparison... This may take a few minutes."):
                 # Create unique temp directory with timestamp
                 unsup_tmp = Path(workdir_base) / f"unsupervised_tmp"
-                unsup_tmp.mkdir(parents=True)
+                unsup_tmp.mkdir(parents=True, exist_ok=True)
 
                 try:
                     # Save uploaded file
@@ -354,19 +343,7 @@ with tab[3]:
                 except Exception as e:
                     st.error(f"❌ Error: {str(e)}")
                     import traceback
-
                     st.code(traceback.format_exc())
-
-                finally:
-                    # Clean up temp directory
-                    try:
-                        import time
-
-                        time.sleep(0.5)  # Wait a bit before cleanup
-                        if unsup_tmp.exists():
-                            shutil.rmtree(unsup_tmp, ignore_errors=True)
-                    except:
-                        pass  # Ignore cleanup errors
 
 # Footer
 st.markdown("---")
