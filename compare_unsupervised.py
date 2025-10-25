@@ -1,4 +1,4 @@
-#  python compare_unsupervised.py --csv firewall_train.csv --outdir ./models/results
+#  python compare_unsupervised.py --csv ./data/firewall_train.csv --outdir ./models/result
 import argparse, os
 import numpy as np
 import pandas as pd

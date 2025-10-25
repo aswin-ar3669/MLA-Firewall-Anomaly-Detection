@@ -1,4 +1,4 @@
-#  python Select_Model.py --csv firewall_train.csv --outdir ./models/results
+#  python compare_supervised.py --csv ./data/firewall_train.csv --outdir ./models/result
 import argparse, os, json
 import numpy as np
 import pandas as pd
@@ -52,10 +52,29 @@ def generate_features(df):
     df["hour"] = dt.apply(lambda x: x.hour if isinstance(x, datetime) else np.nan)
     df["minute"] = dt.apply(lambda x: x.minute if isinstance(x, datetime) else np.nan)
     df["weekday"] = dt.apply(lambda x: x.weekday() if isinstance(x, datetime) else np.nan)
+
     df["Source_ip_int"] = df["Source"].apply(ip_to_int_safe)
     df["Dest_ip_int"] = df["Destination"].apply(ip_to_int_safe)
     df["src_private"] = df["Source"].apply(is_private_ip).astype(int)
     df["dst_private"] = df["Destination"].apply(is_private_ip).astype(int)
+
+    # Add any missing numeric/categorical columns
+    numeric_cols = ["Source_port", "Dest_Port", "Duration", "Bytes", "Packets",
+                    "hour", "minute", "weekday", "Source_ip_int", "Dest_ip_int",
+                    "src_private", "dst_private"]
+    categorical_cols = ["Protocol", "Service", "State", "Action", "Policy_ID"]
+
+    for c in numeric_cols:
+        if c not in df.columns:
+            df[c] = np.nan
+    for c in categorical_cols:
+        if c not in df.columns:
+            df[c] = None
+
+    # Coerce numerics
+    for c in ["Source_port", "Dest_Port", "Duration", "Bytes", "Packets"]:
+        df[c] = pd.to_numeric(df[c], errors="coerce")
+
     return df
 
 def build_preprocessor(X):
