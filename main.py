@@ -224,9 +224,18 @@ with tab[2]:
                                 st.caption(f"Model: {best_rec_model}")
 
                             with col4:
-                                st.metric("Best F1-Score", f"{df_results['F1'].max():.4f}")
-                                best_f1_model = df_results.loc[df_results['F1'].idxmax(), 'Model']
+                                st.metric("Best F1-Score", f"{df_results['F1_macro'].max():.4f}")
+                                best_f1_model = df_results.loc[df_results['F1_marco'].idxmax(), 'Model']
                                 st.caption(f"Model: {best_f1_model}")
+
+                            st.subheader("🎯 Metric Comparison by Model")
+                            metric_cols = ['Accuracy', 'Precision', 'Recall', 'F1_marco']
+                            metric_tabs = st.tabs(metric_cols)
+
+                            for idx, metric in enumerate(metric_cols):
+                                with metric_tabs[idx]:
+                                    chart_data = df_results[['Model', metric]].set_index('Model')
+                                    st.bar_chart(chart_data)
 
                             # Download button
                             csv_data = df_results.to_csv(index=False).encode('utf-8')
