@@ -37,6 +37,7 @@ PRIVATE_NETS = [
     ip_network('169.254.0.0/16'),
 ]
 
+# Check the IP Address
 def ip_to_int_safe(val):
     try:
         if pd.isna(val):
@@ -48,6 +49,7 @@ def ip_to_int_safe(val):
     except Exception:
         return np.nan
 
+# Check the Private IPs
 def is_private_ip(val):
     try:
         if pd.isna(val):
@@ -57,6 +59,7 @@ def is_private_ip(val):
     except Exception:
         return False
 
+# Generate Features
 def generate_features(df: pd.DataFrame) -> pd.DataFrame:
     # Ensure expected columns exist
     for col in ["Date", "Time"]:
@@ -109,6 +112,7 @@ def generate_features(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
+# Pre Processing Features
 def build_preprocessor():
     numeric_features = ["Source_port", "Dest_Port", "Duration", "Bytes", "Packets",
                         "hour", "minute", "weekday", "Source_ip_int", "Dest_ip_int",
@@ -131,6 +135,7 @@ def build_preprocessor():
     )
     return preprocessor
 
+# Build Pipeline
 def build_pipelines():
     pre = build_preprocessor()
     iso = IsolationForest(random_state=42, n_jobs=-1)
