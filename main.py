@@ -225,11 +225,11 @@ with tab[2]:
 
                             with col4:
                                 st.metric("Best F1-Score", f"{df_results['F1_macro'].max():.4f}")
-                                best_f1_model = df_results.loc[df_results['F1_marco'].idxmax(), 'Model']
+                                best_f1_model = df_results.loc[df_results['F1_macro'].idxmax(), 'Model']
                                 st.caption(f"Model: {best_f1_model}")
 
                             st.subheader("🎯 Metric Comparison by Model")
-                            metric_cols = ['Accuracy', 'Precision', 'Recall', 'F1_marco']
+                            metric_cols = ['Accuracy', 'Precision', 'Recall', 'F1_macro']
                             metric_tabs = st.tabs(metric_cols)
 
                             for idx, metric in enumerate(metric_cols):
