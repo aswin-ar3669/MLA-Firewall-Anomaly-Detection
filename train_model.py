@@ -1,9 +1,9 @@
 # Default: Stratified K-Fold CV (5 folds), 40 random trials per model
-    # python ./train_model.py --train_csv ./firewall_train.csv --outdir ./models
+    # python ./train_model.py --train_csv ./data/firewall_train.csv --outdir ./models
 # Time-aware CV (if rows are chronological)
-    # python train_model.py --train_csv ./firewall_train.csv --outdir ./models --cv time
+    # python train_model.py --train_csv ./data/firewall_train.csv --outdir ./models --cv time
 # Faster dry run
-    # python train_model.py --train_csv ./firewall_train.csv --outdir ./models --n_iter 10
+    # python train_model.py --train_csv ./data/firewall_train.csv --outdir ./models --n_iter 10
 import argparse
 import json
 import os
